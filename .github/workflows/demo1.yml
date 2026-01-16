@@ -1,10 +1,15 @@
 name: Events Demo 1
 on: 
   pull_request:
-    types: 
-      - opened
+    types: # activity types
+      - opened  
   workflow_dispatch:
-
+  push:
+    branches: #events
+      - main
+      # - 'dev-*' # an example of a pattern ( dev-new , dev-is-new)
+    paths-ignore:
+      - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
